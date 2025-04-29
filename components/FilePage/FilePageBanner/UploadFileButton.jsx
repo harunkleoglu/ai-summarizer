@@ -22,7 +22,7 @@ export default function UploadFileButton() {
                 onClick={handleOpenModal}
             >
                 <Upload size={18} />
-                <span>{t("upload-file")}</span>
+                <span className='font-mono'>{t("upload-file")}</span>
             </label>
             {isModalOpen && <UploadFileModal onClose={handleCloseModal} />}
         </>

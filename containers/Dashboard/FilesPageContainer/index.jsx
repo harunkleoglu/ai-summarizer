@@ -1,11 +1,13 @@
 "use client"
 import { useState } from "react";
 import { useDebounce } from "use-debounce";
-import FileList from "@/components/DashboardFilePage/FileList";
-import FilePageBanner from "@/components/DashboardFilePage/FilePageBanner";
+import FileList from "@/components/FilePage/FileList";
+import FilePageBanner from "@/components/FilePage/FilePageBanner";
 
 export default function FilesPageContainer() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [filterQuery, setFilterQuery] = useState([]);
+
   const [debouncedQuery] = useDebounce(searchQuery, 300);
 
   const files = [
@@ -21,14 +23,23 @@ export default function FilesPageContainer() {
     { name: "Audio 1", type: "audio", size: 3.1 },
   ];
 
-  const filteredFiles = files.filter((file) =>
+  const filteredFiles = filterQuery.length
+    ? files.filter((file) =>
+        file.type && filterQuery.some((filter) => filter.toLowerCase() === file.type)
+      )
+    : files;
+
+  const searchedFiles = filteredFiles.filter((file) =>
     file.name.toLowerCase().includes(debouncedQuery.toLowerCase())
   );
 
   return (
     <>
-      <FilePageBanner onSearch={setSearchQuery}></FilePageBanner>
-      <FileList files={filteredFiles}></FileList>
+      <FilePageBanner
+        onSearch={setSearchQuery}
+        onFilter={setFilterQuery}
+      ></FilePageBanner>
+      <FileList files={searchedFiles}></FileList>
     </>
   );
 }

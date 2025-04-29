@@ -1,5 +1,6 @@
 "use client"
-import { FileText, FileVideo, FileAudio, File, MoreVertical, Eye, Trash2, Edit, HardDrive } from 'lucide-react';
+import { FileText, FileVideo, FileAudio, FileType, FileImage, File, MoreVertical, Eye, Trash2, Edit, HardDrive } from 'lucide-react';
+
 import { useState } from 'react';
 
 export default function FileCard({ file }) {
@@ -10,7 +11,11 @@ export default function FileCard({ file }) {
             case 'pdf':
                 return <FileText className="w-6 h-6 text-red-500" />;
             case 'video':
-                return <FileVideo className="w-6 h-6 text-blue-500" />;
+                return <FileVideo className="w-6 h-6 text-yellow-500" />;
+            case 'image':
+                return <FileImage className="w-6 h-6 text-blue-500" />;
+            case 'document':
+                return <FileType className="w-6 h-6 text-indigo-500" />;
             case 'audio':
                 return <FileAudio className="w-6 h-6 text-green-500" />;
             default:

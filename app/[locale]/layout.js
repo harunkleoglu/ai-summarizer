@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import AuthProvider from "@/components/Auth/Provider";
 
 
 const poppins = Poppins({
@@ -24,9 +25,11 @@ export default async function localeLayout({ children, params }) {
     return (
         <html lang={locale} className={poppins.variable}>
             <body className="bg-white text-gray-900">
-                <NextIntlClientProvider locale={locale}>
-                    {children}
-                </NextIntlClientProvider>
+                <AuthProvider>
+                    <NextIntlClientProvider locale={locale}>
+                        {children}
+                    </NextIntlClientProvider>
+                </AuthProvider>
             </body>
         </html>
     )

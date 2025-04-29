@@ -2,5 +2,32 @@
     "HomePage": {
         "title": "Home Page",
         "description": "Home page description"
+    },
+    "LoginPage": {
+        "title": "Login to QuickScribe",
+        "email": "Email",
+        "password": "Password",
+        "login": "Login",
+        "emailRequired": "Email is required",
+        "passwordRequired": "Password is required",
+        "PasswordLength": "Password must be at least 6 characters long",
+        "invalidCredentials": "No user found with these credentials",
+        "logging-in": "Logging In..."
+    },
+    "DashboardPage": {
+        "Dashboard-Sidebar": {
+            "dashboard": "Dashboard",
+            "files": "Files",
+            "profile": "Profile",
+            "logout": "Logout"
+        },
+        "Dashboard-Footer": {
+            "privacy": "Privacy Policy",
+            "copyright": "© 2025 QuickScribe. All rights reserved."
+        },
+        "Dashboard-FilesPage": {
+            "not-found": "There is no file",
+            "upload-file": "Upload File"
+        }
     }
 }

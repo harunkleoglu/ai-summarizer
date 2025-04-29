@@ -2,5 +2,32 @@
     "HomePage": {
         "title": "Ana Sayfa",
         "description": "Ana sayfa açıklaması"
+    },
+    "LoginPage": {
+        "title": "QuickScribe'a Giriş Yap",
+        "email": "E-posta",
+        "password": "Şifre",
+        "login": "Giriş Yap",
+        "emailRequired": "E-posta gerekli",
+        "passwordRequired": "Şifre gerekli",
+        "PasswordLength": "Şifre en az 6 karakter uzunluğunda olmalıdır",
+        "invalidCredentials": "Bu bilgilere sahip bilgilere sahip bir kullanıcı bulunamadı",
+        "logging-in": "Giriş Yapılıyor..."
+    },
+    "DashboardPage": {
+        "Dashboard-Sidebar": {
+            "dashboard": "Gösterge Paneli",
+            "files": "Dosyalar",
+            "profile": "Profil",
+            "logout": "Çıkış Yap"
+        },
+        "Dashboard-Footer": {
+            "privacy": "Gizlilik Politikası",
+            "copyright": "© 2025 QuickScribe. Tüm hakları saklıdır."
+        },
+        "Dashboard-FilesPage": {
+            "not-found": "Dosya bulunamadı.",
+            "upload-file": "Dosya Yükle"
+        }
     }
 }

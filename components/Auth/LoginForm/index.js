@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import * as Yup from 'yup';
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation';
-import { LogIn } from 'lucide-react';
+import { CircleAlert, LogIn } from 'lucide-react';
 
 export default function LoginForm() {
     const t = useTranslations('LoginPage')
@@ -33,7 +33,7 @@ export default function LoginForm() {
                     validationSchema={formSchema}
                     validateOnBlur={false}
                     validateOnChange={false}
-                    onSubmit={async (values, { setSubmitting }) => {
+                    onSubmit={async (values, { setSubmitting, setFieldError }) => {
                         try {
                             const res = await signIn('credentials', {
                                 redirect: false,
@@ -46,8 +46,7 @@ export default function LoginForm() {
                                 router.push('/dashboard');
                             }
                             else{
-                                actions.setFieldError('email', t('invalidCredentials'));
-                                actions.setFieldError('password', t('invalidCredentials'));
+                                setFieldError('password', t('invalidCredentials'));
                             }
                         }
                         catch (error) {
@@ -61,7 +60,7 @@ export default function LoginForm() {
                 >
                     {({ errors, touched, isSubmitting, handleChange }) => (
                         <Form className='flex flex-col gap-6'>
-                            <div className='flex flex-col gap-2'>
+                            <div className='flex flex-col relative'>
                                 <label htmlFor="email" className='text-sm font-mono font-medium text-gray-700'>
                                     {t('email')}
                                 </label>
@@ -72,9 +71,11 @@ export default function LoginForm() {
                                     className='border border-green-500 rounded-sm font-mono px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500'
                                     onChange={handleChange}
                                 />
-
+                                {errors.email && touched.email && (
+                                    <span className='absolute flex gap-2 items-center text-xs font-mono text-red-500 top-16'><CircleAlert size={12}></CircleAlert> {errors.email}!</span>
+                                )}
                             </div>
-                            <div className='flex flex-col gap-2'>
+                            <div className='flex flex-col relative'>
                                 <label htmlFor="password" className='text-sm font-mono font-medium text-gray-700'>
                                     {t('password')}
                                 </label>
@@ -85,21 +86,10 @@ export default function LoginForm() {
                                     className='border border-green-500 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500'
                                     onChange={handleChange}
                                 />
-
+                                {errors.password && touched.password && (
+                                    <span className='absolute flex gap-2 items-center text-xs font-mono text-red-500 top-16'><CircleAlert size={12}></CircleAlert>{errors.password}!</span>
+                                )}
                             </div>
-                            {errors.email && touched.email || errors.password && touched.password ?
-                                <div className='bg-white p-3 rounded-md shadow-sm'>
-                                    <ul>
-                                        {errors.email && touched.email ? (
-                                            <li className='text-xs font-mono text-red-500'>{errors.email}!</li>
-                                        ) : null}
-                                        {errors.password && touched.password ? (
-                                            <li className='text-xs font-mono font-medium text-red-500'>{errors.password}!</li>
-                                        ) : null}
-                                    </ul>
-                                </div>
-                                : null
-                            }
                             <button
                                 className='flex gap-2 justify-center items-center bg-green-500 hover:bg-green-600 transition-all cursor-pointer rounded-md px-4 py-2 text-white font-mono font-bold disabled:opacity-50 disabled:cursor-not-allowed'
                                 type="submit"

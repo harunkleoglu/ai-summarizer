@@ -7,7 +7,7 @@ export default function FileList({ files }) {
     if(!files || files.length === 0){
         return(
             <>
-                <div className="flex justify-center items-center border border-gray-200 rounded-lg h-[50%]">
+                <div className="flex justify-center items-center border border-gray-200 rounded-lg h-[400px]">
                     <span className="flex items-center justify-center gap-2 font-mono font-bold text-xl"><CircleAlert></CircleAlert>{t("not-found")}</span>
                 </div>
             </>

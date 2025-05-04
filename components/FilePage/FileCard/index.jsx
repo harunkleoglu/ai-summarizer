@@ -33,7 +33,7 @@ export default function FileCard({ file }) {
                 {getFileIcon(file.type)}
             </div>
             <h3 className="text-lg font-medium text-gray-700 text-center mb-2">{file.name}</h3>
-            <span className="flex items-center justify-center gap-1 text-xs bg-green-500 text-white px-3 py-1 rounded-xl text-center"><HardDrive className='h-4 w-4'></HardDrive>{file.size} MB</span>
+            <span className="flex items-center justify-center gap-1 text-xs border-1 border-green-500 text-green-500 font-semibold px-3 py-1 rounded-xl text-center"><HardDrive className='h-4 w-4'></HardDrive>{file.size} MB</span>
 
             <button
                 className="absolute top-2 right-2 p-2 rounded-full hover:bg-gray-200 cursor-pointer"

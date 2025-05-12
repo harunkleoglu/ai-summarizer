@@ -99,6 +99,9 @@ export default function LoginForm() {
                                 {isSubmitting ? t('logging-in') : <><LogIn size={20}/> {t('login')}</>}
                                 
                             </button>
+                            <div className='flex flex-col justify-center items-center'>
+                                <a href="/register" className='text-green-500 hover:text-green-600 text-xs transition-all font-mono font-bold'>{t('register-link')}</a>
+                            </div>
                         </Form>
                     )}
                 </Formik>

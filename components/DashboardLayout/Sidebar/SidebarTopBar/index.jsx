@@ -1,5 +1,6 @@
 import useStore from "@/store/sidebarStore"
 import { ArrowLeftToLine } from "lucide-react"
+
 export default function SidebarTopBar() {
   const closeSidebar = useStore((state) => state.closeSidebar)
   return (

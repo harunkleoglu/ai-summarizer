@@ -1,10 +1,17 @@
+import DashboardTopBar from '@/components/Dashboard/DashboardTopBar';
+import Tools from '@/components/Dashboard/Tools';
+import { getServerSession } from 'next-auth';
 import React from 'react';
 
-export default function DashboardContainer() {
+export default async function DashboardContainer() {
+    const session = await getServerSession();
+    const user = session?.user;
+
     return (
-        <div>
-            DashboardContainer
-        </div>
+        <>
+            <DashboardTopBar user={user} />
+            <Tools />
+        </>
     );
 }
 

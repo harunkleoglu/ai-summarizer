@@ -1,16 +1,8 @@
 import "../globals.css";
-import { Poppins } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import AuthProvider from "@/components/Auth/Provider";
-
-
-const poppins = Poppins({
-    subsets: ["latin"],
-    weight: ["400", "500", "600", "700"],
-    variable: "--font-poppins",
-});
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -23,7 +15,7 @@ export default async function localeLayout({ children, params }) {
         notFound();
     }
     return (
-        <html lang={locale} className={poppins.variable}>
+        <html lang={locale}>
             <body className="bg-white text-gray-900">
                 <AuthProvider>
                     <NextIntlClientProvider locale={locale}>

@@ -13,7 +13,7 @@ export default function FilesPageContainer() {
   const files = [
     { name: "caliskan-ari.pdf", type: "pdf", size: 1.2 },
     { name: "bilfen-gelistirme-notlari.mp4", type: "video", size: 15.4 },
-    { name: "boom-soundfx.wav", type: "audio", size: 3.1 },
+    { name: "AMIN-soundfx.wav", type: "audio", size: 3.1 },
     { name: "Document 2", size: 2.5 },
     { name: "Video 2", type: "video", size: 20.7 },
     { name: "Audio 2", type: "audio", size: 4.8 },
@@ -32,6 +32,7 @@ export default function FilesPageContainer() {
   const searchedFiles = filteredFiles.filter((file) =>
     file.name.toLowerCase().includes(debouncedQuery.toLowerCase())
   );
+
 
   return (
     <>

@@ -5,7 +5,7 @@ import SidebarMenu from './SidebarMenu';
 import SidebarFooter from './SidebarFooter';
 import useStore from '../../../store/sidebarStore';
 
-export default function DashboardSidebar() {
+export default function DashboardSidebar({ user }) {
     const isOpen = useStore((state) => state.isSidebarOpen);
     return (
         <div>
@@ -14,9 +14,9 @@ export default function DashboardSidebar() {
             >
                 <SidebarTopBar />
                 <div className='flex-1 overflow-y-auto'>
-                    <SidebarMenu />
+                    <SidebarMenu user={user} />
                 </div>
-                <SidebarFooter />
+                {/* <SidebarFooter /> */}
             </div>
         </div>
     );

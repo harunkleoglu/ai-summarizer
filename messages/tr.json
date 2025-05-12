@@ -12,9 +12,27 @@
         "passwordRequired": "Şifre gerekli",
         "PasswordLength": "Şifre en az 6 karakter uzunluğunda olmalıdır",
         "invalidCredentials": "Bu bilgilere sahip bilgilere sahip bir kullanıcı bulunamadı",
-        "logging-in": "Giriş Yapılıyor..."
+        "logging-in": "Giriş Yapılıyor...",
+        "register-link": "Hesabınız yok mu? Kayıt olun"
+    },
+    "RegisterPage": {
+        "title": "QuickScribe'a Kayıt Ol",
+        "name": "Ad Soyad",
+        "email": "E-posta",
+        "password": "Şifre",
+        "register": "Kayıt Ol",
+        "nameRequired": "İsim gerekli",
+        "emailRequired": "E-posta gerekli",
+        "PasswordLength": "Şifre en az 6 karakter uzunluğunda olmalıdır",
+        "passwordRequired": "Şifre gerekli",
+        "registering": "Kayıt Olunuyor...",
+        "login-link": "Zaten bir hesabınız var mı? Giriş yapın"
     },
     "DashboardPage": {
+        "Dashboard-MainPage": {
+            "welcome": "Hoş geldiniz",
+            "description": "QuickScribe'ın güçlü AI araçları ile belgelerinizi kolayca yönetin ve paylaşın."
+        },
         "Dashboard-Sidebar": {
             "dashboard": "Gösterge Paneli",
             "files": "Dosyalar",

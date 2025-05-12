@@ -12,9 +12,27 @@
         "passwordRequired": "Password is required",
         "PasswordLength": "Password must be at least 6 characters long",
         "invalidCredentials": "No user found with these credentials",
-        "logging-in": "Logging In..."
+        "logging-in": "Logging In...",
+        "register-link": "Don't have an account? Register"
+    },
+    "RegisterPage": {
+        "title": "Register to QuickScribe",
+        "name": "Full Name",
+        "email": "Email",
+        "password": "Password",
+        "register": "Register",
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "PasswordLength": "Password must be at least 6 characters long",
+        "passwordRequired": "Password is required",
+        "registering": "Registering...",
+        "login-link": "Already have an account? Login"
     },
     "DashboardPage": {
+        "Dashboard-MainPage": {
+            "welcome": "Welcome",
+            "description": "Easily manage and share your documents with QuickScribe's powerful AI tools."
+        },
         "Dashboard-Sidebar": {
             "dashboard": "Dashboard",
             "files": "Files",

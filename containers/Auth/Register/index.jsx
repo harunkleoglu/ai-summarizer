@@ -1,7 +1,7 @@
-import LoginForm from "@/components/Auth/LoginForm";
+import RegisterForm from "@/components/Auth/RegisterForm";
 
 export default function RegisterPageContainer() {
   return (
-    <LoginForm/>
-  )
+    <RegisterForm/>
+  );
 }

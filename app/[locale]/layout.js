@@ -3,6 +3,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import AuthProvider from "@/components/Auth/Provider";
+import { poppins } from "../fonts";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -16,7 +17,7 @@ export default async function localeLayout({ children, params }) {
     }
     return (
         <html lang={locale}>
-            <body className="bg-white text-gray-900">
+            <body className={`bg-white text-gray-900 ${poppins.className}`}>
                 <AuthProvider>
                     <NextIntlClientProvider locale={locale}>
                         {children}

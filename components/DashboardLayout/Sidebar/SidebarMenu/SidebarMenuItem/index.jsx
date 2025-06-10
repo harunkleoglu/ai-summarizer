@@ -5,7 +5,6 @@ export default function SidebarMenuItem({ href, className, children, onClick, ac
     if (onClick) {
         isButton = true;
     }
-    console.log(children, active);
     
 
     if (isButton) {

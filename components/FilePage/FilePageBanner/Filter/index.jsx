@@ -13,43 +13,55 @@ export default function Filter({ onFilter }) {
         onFilter(updatedFilter);
     };
 
+    const filterData = [
+        {
+            type: 'pdf',
+            icon: <FileText size={20} />,
+            label: 'PDF',
+            selectedClassNames: 'bg-red-400 text-white',
+            unselectedClassNames: 'border-red-400 text-red-500 hover:bg-red-400 hover:text-white'
+        },
+        { 
+            type: 'video',
+            icon: <FileVideo size={20} />,
+            label: 'Video',
+            selectedClassNames: 'bg-yellow-400 text-white',
+            unselectedClassNames: 'border-yellow-400 text-yellow-500 hover:bg-yellow-400 hover:text-white'
+        },
+        {
+            type: 'image',
+            icon: <FileImage size={20} />,
+            label: 'Image',
+            selectedClassNames: 'bg-blue-400 text-white',
+            unselectedClassNames: 'border-blue-400 text-blue-500 hover:bg-blue-400 hover:text-white'
+        },
+        {
+            type: 'document',
+            icon: <FileType size={20} />,
+            label: 'Document',
+            selectedClassNames: 'bg-indigo-400 text-white',
+            unselectedClassNames: 'border-indigo-400 text-indigo-500 hover:bg-indigo-400 hover:text-white'
+        },
+        {
+            type: 'audio',
+            icon: <FileAudio size={20} />,
+            label: 'Audio',
+            selectedClassNames: 'bg-green-400 text-white',
+            unselectedClassNames: 'border-green-400 text-green-500 hover:bg-green-400 hover:text-white'
+        },
+    ]
+
     return (
-        <div className='flex gap-3 items-center justify-center h-fit w-fit shadow-xsp-3 rounded-lg'>
-            <button 
-                className={`flex px-3 py-2 items-center justify-center border-2 ${selectedFilter?.includes('pdf') ? 'bg-red-400 text-white' : 'border-red-400 text-red-500 hover:bg-red-400 hover:text-white'} hover:scale-105 cursor-pointer transition-all duration-200 h-3/4 rounded-xl`} 
-                onClick={() => handleFilterClick('pdf')}
-            >
-                <FileText size={20}></FileText>
-                <p className='font-semibold text-sm ms-2'>PDF</p>
-            </button>
-            <button 
-                className={`flex px-3 py-2 items-center justify-center border-2 ${selectedFilter?.includes('video') ? 'bg-yellow-400 text-white' : 'border-yellow-400 text-yellow-500 hover:bg-yellow-400 hover:text-white'} hover:scale-105 cursor-pointer transition-all duration-200 h-3/4 rounded-xl`} 
-                onClick={() => handleFilterClick('video')}
-            >
-                <FileVideo size={20}></FileVideo>
-                <p className='font-semibold text-sm ms-2'>Video</p>
-            </button>
-            <button 
-                className={`flex px-3 py-2 items-center justify-center border-2 ${selectedFilter?.includes('image') ? 'bg-blue-400 text-white' : 'border-blue-400 text-blue-500 hover:bg-blue-400 hover:text-white'} hover:scale-105 cursor-pointer transition-all duration-200 h-3/4 rounded-xl`} 
-                onClick={() => handleFilterClick('image')}
-            >
-                <FileImage size={20}></FileImage>
-                <p className='font-semibold text-sm ms-2'>Image</p>
-            </button>
-            <button 
-                className={`flex px-3 py-2 items-center justify-center border-2 ${selectedFilter?.includes('document') ? 'bg-indigo-400 text-white' : 'border-indigo-400 text-indigo-500 hover:bg-indigo-400 hover:text-white'} hover:scale-105 cursor-pointer transition-all duration-200 h-3/4 rounded-xl`} 
-                onClick={() => handleFilterClick('document')}
-            >
-                <FileType size={20}></FileType>
-                <p className='font-semibold text-sm ms-2'>Document</p>
-            </button>
-            <button 
-                className={`flex px-3 py-2 items-center justify-center border-2 ${selectedFilter?.includes('audio') ? 'bg-green-400 text-white' : 'border-green-400 text-green-500 hover:bg-green-400 hover:text-white'} hover:scale-105 cursor-pointer transition-all duration-200 h-3/4 rounded-xl`} 
-                onClick={() => handleFilterClick('audio')}
-            >
-                <FileAudio size={20}></FileAudio>
-                <p className='font-semibold text-sm ms-2'>Audio</p>
-            </button>
+        <div className='flex gap-3 items-center justify-center h-fit w-fit rounded-lg'>
+            {filterData.map((filter) => (
+                <button
+                    className={`flex px-3 py-2 items-center justify-center border-2 ${selectedFilter?.includes(filter.type) ? filter.selectedClassNames : filter.unselectedClassNames} hover:scale-105 cursor-pointer transition-all duration-200 rounded-xl`}
+                    onClick={() => handleFilterClick(filter.type)}
+                >
+                    {filter.icon}
+                    <p className='font-medium text-sm ms-2'>{filter.label}</p>
+                </button>
+            ))}
         </div>
     );
 }

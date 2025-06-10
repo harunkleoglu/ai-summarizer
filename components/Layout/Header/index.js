@@ -1,4 +1,5 @@
 import { Button, Logo } from '@/globalElements'
+import { LogIn } from 'lucide-react'
 import React from 'react'
 
 export default function Header() {
@@ -6,8 +7,8 @@ export default function Header() {
         <div className='flex justify-between p-8 shadow-md'>
             <Logo />
             <div className='flex gap-4'>
-                <Button href="/login">Sign In</Button>
-                <Button href="/register">Register</Button>
+                <Button as='a' href="/login" icon={<LogIn width={20} height={20} />}>Sign In</Button>
+                <Button as='a' href="/register">Register</Button>
             </div>
         </div>
     )

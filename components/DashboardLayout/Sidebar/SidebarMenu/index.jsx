@@ -11,7 +11,6 @@ export default function SidebarMenu({ user }) {
   const locale = useLocale();
 
   const handleSignout = async () => {
-    console.log('Logout button clicked'); // Debugging log
     try {
       await signOut({ callbackUrl: '/login' });
     } catch (error) {

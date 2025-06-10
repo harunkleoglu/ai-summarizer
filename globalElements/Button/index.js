@@ -1,20 +1,45 @@
 "use client"
+import React from "react"
 
 export default function Button({
     children = "Button",
-    onClick = () => {},
-    className,
+    icon = <></>,
+    onClick = () => { },
+    className = "",
     type = 'button',
+    as = 'button', // 'button' veya 'a' olabilir
+    disabled = false,
+    href = '', // <a> için
     ...props
 }) {
+    const isLink = as === 'a';
+    const commonProps = {
+        className: `gap-2 flex justify-center items-center cursor-pointer rounded-lg bg-gradient-to-r from-green-500 to-green-600 hover:from-green-500 hover:to-green-600 px-4 py-2 text-white shadow-lg hover:rounded-md disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 bg-[length:200%_200%] bg-[position:0%_50%] hover:bg-[position:100%_50%] ${className}`,
+        onClick: disabled ? undefined : onClick,
+        ...props
+    };
+    if (isLink) {
+        return (
+            <a
+                href={href}
+                role="button"
+                aria-disabled={disabled}
+                tabIndex={disabled ? -1 : 0}
+                {...commonProps}
+            >
+                {icon && <span>{icon}</span>}
+                {children}
+            </a>
+        );
+    }
     return (
-        <a
+        <button
             type={type}
-            className={`flex items-center justify-center bg-green-500 hover:bg-green-600 transition-all cursor-pointer text-white px-4 py-2 rounded-lg ${className}`}
-            onClick={onClick}
-            {...props}
+            disabled={disabled}
+            {...commonProps}
         >
+            {icon && <span>{icon}</span>}
             {children}
-        </a>
-    )
+        </button>
+    );
 }

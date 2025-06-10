@@ -3,7 +3,7 @@ import { FileText, FileVideo, FileAudio, FileType, FileImage, File, MoreVertical
 
 import { useState } from 'react';
 
-export default function FileCard({ file }) {
+export default function FileCard({ file, index }) {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const getFileIcon = (type) => {
@@ -28,7 +28,7 @@ export default function FileCard({ file }) {
     };
 
     return (
-        <div className="relative flex flex-col justify-center items-center h-[260px] min-w-[260px] md:h-[240px] md:min-w-[240px] lg:h-[220px] lg:min-w-[220px] xl:h-[225px] xl:min-w-[225px] 2xl:h-[230px] 2xl:min-w-[230px] hover:scale-[105%] hover:bg-gray-100 transition-all cursor-pointer border border-gray-200 shadow-sm rounded-2xl p-4">
+        <div key={index} className="relative flex flex-col justify-center items-center h-[260px] min-w-[260px] md:h-[240px] md:min-w-[240px] lg:h-[220px] lg:min-w-[220px] xl:h-[225px] xl:min-w-[225px] 2xl:h-[230px] 2xl:min-w-[230px] hover:scale-[105%] hover:bg-gray-100 transition-all cursor-pointer border border-gray-200 shadow-sm rounded-2xl p-4">
             <div className="mb-4">
                 {getFileIcon(file.type)}
             </div>

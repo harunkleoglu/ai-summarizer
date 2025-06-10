@@ -2,6 +2,7 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { X } from 'lucide-react';
+import { Button } from '@/globalElements';
 
 const validationSchema = Yup.object({
     file: Yup.mixed().required('A file is required'),
@@ -58,12 +59,9 @@ export default function UploadFileModal({ onClose }) {
                     {formik.errors.file && formik.touched.file && (
                         <p className="text-red-500 text-sm">{formik.errors.file}</p>
                     )}
-                    <button
-                        type="submit"
-                        className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-all cursor-pointer"
-                    >
+                    <Button type="submit">
                         Upload
-                    </button>
+                    </Button>
                 </form>
             </div>
         </div>

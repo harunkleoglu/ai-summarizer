@@ -55,6 +55,7 @@ export default function Filter({ onFilter }) {
         <div className='flex gap-3 items-center justify-center h-fit w-fit rounded-lg'>
             {filterData.map((filter) => (
                 <button
+                    key={filter.type}
                     className={`flex px-3 py-2 items-center justify-center border-2 ${selectedFilter?.includes(filter.type) ? filter.selectedClassNames : filter.unselectedClassNames} hover:scale-105 cursor-pointer transition-all duration-200 rounded-xl`}
                     onClick={() => handleFilterClick(filter.type)}
                 >

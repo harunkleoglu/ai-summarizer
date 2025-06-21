@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
 import FileList from "@/components/FilePage/FileList";
 import FilePageBanner from "@/components/FilePage/FilePageBanner";
@@ -8,14 +8,30 @@ import useDashboardStore from "@/store/dashboardStore";
 export default function FilesPageContainer() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterQuery, setFilterQuery] = useState([]);
-
   const [debouncedQuery] = useDebounce(searchQuery, 300);
 
   const files = useDashboardStore((state) => state.files);
+  const setFiles = useDashboardStore((state) => state.setFiles);
+
+  useEffect(() => {
+    async function fetchFiles() {
+      const res = await fetch("/api/file");
+      const data = await res.json();
+      if (res.ok && data.status === "success") {
+        setFiles(data.files);
+      }
+    }
+    fetchFiles();
+
+    // Dosya yüklendikten sonra event dinle
+    const onFileUploaded = () => fetchFiles();
+    window.addEventListener('file-uploaded', onFileUploaded);
+    return () => window.removeEventListener('file-uploaded', onFileUploaded);
+  }, [setFiles]);
 
   const filteredFiles = filterQuery.length
     ? files.filter((file) =>
-        file.type && filterQuery.some((filter) => filter.toLowerCase() === file.type)
+        file.contentType && filterQuery.some((filter) => filter.toLowerCase() === file.contentType)
       )
     : files;
 

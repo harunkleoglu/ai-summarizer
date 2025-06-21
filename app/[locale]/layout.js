@@ -3,7 +3,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import AuthProvider from "@/components/Auth/Provider";
-import { poppins, openSans, notoSans } from "../fonts";
+import { openSans } from "../fonts";
 
 export const dynamicParams = false;
 export function generateStaticParams() {
